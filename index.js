@@ -8,11 +8,19 @@ const server = http.createServer(function (req, res) {
     const path = parsedUrl.pathname;
     const trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
+    const queryStringObject = parsedUrl.query;
+
     const method = req.method.toLowerCase();
+
+    const headers = req.headers;
 
     res.end('Hello  World\n');
 
-    console.log('Request received on path: '+trimmedPath+ ' with method: '+method);
+    // console.log('Request received on path: '+trimmedPath+
+    //             ' with method: '+method +
+    //             ' and with these query string parameters' + queryStringObject );
+
+    console.log('Request received with these headers' , headers);
 });
 
 server.listen(3000, function () {
