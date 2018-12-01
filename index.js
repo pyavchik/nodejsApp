@@ -8,10 +8,11 @@ const server = http.createServer(function (req, res) {
     const path = parsedUrl.pathname;
     const trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
+    const method = req.method.toLowerCase();
 
-   res.end('Hello  World\n');
+    res.end('Hello  World\n');
 
-   console.log('Request received on path: '+trimmedPath);
+    console.log('Request received on path: '+trimmedPath+ ' with method: '+method);
 });
 
 server.listen(3000, function () {
